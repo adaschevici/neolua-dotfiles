@@ -4,6 +4,31 @@ return {
     { 'nvim-lua/plenary.nvim' },
     { "nvim-telescope/telescope-fzf-native.nvim", enabled = vim.fn.executable "make" == 1, build = "make" }
   },
+  opts = function()
+    local actions = require("telescope.actions")
+    return {
+      defaults = {
+        mappings = {
+          i = {
+            ["<esc>"] = actions.close,
+            ["<C-j>"] = actions.move_selection_next,
+            ["<C-k>"] = actions.move_selection_previous,
+          },
+          n = {
+            ["<esc>"] = actions.close,
+            ["<C-j>"] = actions.move_selection_next,
+            ["<C-k>"] = actions.move_selection_previous,
+          },
+        },
+      },
+      extensions = {
+        fzf = {
+          override_generic_sorter = true,
+          override_file_sorter = true,
+        },
+      },
+    }
+  end,
   keys = {
     -- disable the keymap to grep files
     {"<leader>/", false},
