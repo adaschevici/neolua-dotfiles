@@ -15,3 +15,4 @@ if not pcall(require, "lazy") then
   vim.cmd.quit()
 end
 
+require "lazy_setup"
