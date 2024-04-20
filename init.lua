@@ -15,4 +15,5 @@ if not pcall(require, "lazy") then
   vim.cmd.quit()
 end
 
+colorscheme = habamax
 require "lazy_setup"
