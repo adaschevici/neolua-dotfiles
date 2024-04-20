@@ -17,6 +17,7 @@ vim.api.nvim_command("cnoreabbrev WQA wqa")
 
 vim.api.nvim_command("colorscheme habamax")
 vim.g.mapleader = ' '
+vim.opt.clipboard:append("unnamedplus")
 
 local lazypath = vim.env.LAZY or vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not (vim.env.LAZY or (vim.uv or vim.loop).fs_stat(lazypath)) then
