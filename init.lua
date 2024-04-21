@@ -15,7 +15,6 @@ vim.api.nvim_command("cnoreabbrev WQa wqa")
 vim.api.nvim_command("cnoreabbrev Wqa wqa")
 vim.api.nvim_command("cnoreabbrev WQA wqa")
 
-vim.api.nvim_command("colorscheme habamax")
 vim.g.mapleader = ' '
 vim.opt.clipboard:append("unnamedplus")
 
@@ -34,5 +33,4 @@ if not pcall(require, "lazy") then
   vim.cmd.quit()
 end
 
-colorscheme = habamax
 require "lazy_setup"
