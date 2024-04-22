@@ -18,6 +18,13 @@ vim.api.nvim_command("cnoreabbrev WQA wqa")
 vim.g.mapleader = ' '
 vim.opt.clipboard:append("unnamedplus")
 
+-- Auto-command in Lua
+
+vim.api.nvim_create_autocmd({"BufRead"}, {
+    pattern = "*",
+    command = "set relativenumber"
+})
+
 local lazypath = vim.env.LAZY or vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 if not (vim.env.LAZY or (vim.uv or vim.loop).fs_stat(lazypath)) then
   -- stylua: ignore
