@@ -26,7 +26,7 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed =
 {
-	"eslint",
+	"emmet_ls",
 	"lua_ls",
 	"gopls",
   "rust_analyzer",
