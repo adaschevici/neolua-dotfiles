@@ -26,7 +26,6 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed =
 {
-	"emmet_ls",
 	"lua_ls",
 	"gopls",
   "rust_analyzer",
@@ -83,6 +82,17 @@ lsp_zero.configure("rust_analyzer", {
             }
         }
     }
+})
+
+lsp_zero.configure("tsserver", {
+  filetypes = {"typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact", "javascript.tsx", "mjs", "jsx", "tsx", "ts", "js"},
+  settings = {
+    typescript = {
+      preferences = {
+        importModuleSpecifierPreference = "relative"
+      }
+    }
+  }
 })
 
 
