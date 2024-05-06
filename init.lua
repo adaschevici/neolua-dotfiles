@@ -40,4 +40,10 @@ if not pcall(require, "lazy") then
   vim.cmd.quit()
 end
 
+vim.api.nvim_exec([[
+  augroup FormatAutogroup
+    autocmd!
+    autocmd BufWritePost *.py,*.js,*.mjs,*.ts FormatWrite
+  augroup END
+]], true)
 require "lazy_setup"
