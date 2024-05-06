@@ -23,7 +23,26 @@ return {
               }
             end
           },
-          -- Add more filetypes here
+          rust = {
+          -- Rustfmt
+            function()
+              return {
+                exe = "rustfmt", -- Ensure rustfmt is available in your PATH or specify the path
+                args = {"--emit=stdout"},
+                stdin = true
+              }
+            end
+          },
+          go = {
+            -- Gofmt
+            function()
+              return {
+                exe = "gofmt", -- Ensure gofmt is available in your PATH or specify the path
+                stdin = true
+              }
+            end
+          },
+          -- More filetypes...
         }
       })
     end
