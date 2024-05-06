@@ -46,4 +46,6 @@ vim.api.nvim_exec([[
     autocmd BufWritePost *.py,*.js,*.mjs,*.ts,*.css,*.html,*.rs,*.go FormatWrite
   augroup END
 ]], true)
+
+
 require "lazy_setup"
