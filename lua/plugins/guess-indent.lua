@@ -17,6 +17,6 @@ return {
       },
     }
   end,
-  ft = { 'lua', 'vim', 'sh', 'c', 'cpp', 'rust', 'python', 'typescript', 'javascript', 'html', 'css', 'json', 'yaml', 'markdown' },
+  ft = { 'lua', 'vim', 'sh', 'c', 'cpp', 'rust', 'python', 'typescript', 'javascript', 'html', 'css', 'json', 'yaml', 'markdown', 'mjs' },
 
 }
