@@ -17,8 +17,8 @@ return {
             -- Use prettier for JavaScript
             function()
               return {
-                exe = "./node_modules/.bin/prettier",
-                args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
+                exe = "pnpm exec prettier",
+                args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--double-quote", "--bracket-spacing"},
                 stdin = true
               }
             end
