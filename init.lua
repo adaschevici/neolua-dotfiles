@@ -40,12 +40,20 @@ if not pcall(require, "lazy") then
   vim.cmd.quit()
 end
 
-vim.api.nvim_exec([[
-  augroup FormatAutogroup
-    autocmd!
-    autocmd BufWritePost *.py,*.js,*.mjs,*.ts,*.css,*.html,*.rs,*.go FormatWrite
-  augroup END
-]], true)
+-- vim.api.nvim_exec([[
+--   augroup FormatAutogroup
+--     autocmd!
+--     autocmd BufWritePost *.py,*.js,*.mjs,*.ts,*.css,*.html,*.rs,*.go FormatWrite
+--   augroup END
+-- ]], true)
+
+local group = vim.api.nvim_create_augroup("FormatAutogroup", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = {"*.py", "*.js", "*.mjs", "*.ts", "*.css", "*.html", "*.rs", "*.go"},
+  command = "FormatWrite",
+  group = group,
+})
+
 
 
 require "lazy_setup"
