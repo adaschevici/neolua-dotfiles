@@ -1,5 +1,6 @@
 local cmp = require('cmp')
 local lsp_zero = require("lsp-zero")
+-- local lspkind = require('lspkind')
 local cmp_action = require('lsp-zero').cmp_action()
 
 
@@ -79,7 +80,13 @@ lsp_zero.configure("rust_analyzer", {
         ["rust-analyzer"] = {
             cargo = {
                 allFeatures = true
-            }
+            },
+            procMacro = {
+              enable = true
+            },
+            checkOnSave = {
+              command = "clippy"
+            },
         }
     }
 })
@@ -116,9 +123,9 @@ local commands = {
 	["goto_def"] = { function() vim.lsp.buf.definition() end, desc = "Goto definition" },
 	["hover"] = { function() vim.lsp.buf.hover() end, desc = "Hover" },
 	["ws_symbol"] = { function() vim.lsp.buf.workspace_symbol('⌘') end, desc = "Workspace symbol" },
-	["diag"] = { function() vim.diagnotics.open_float() end, desc = "Diagnostics" },
-	["diag_next"] = { function() vim.diagnotics.goto_next() end, desc = "Next diagnostics" },
-	["diag_prev"] = { function() vim.diagnotics.goto_prev() end, desc = "Prev diagnostics" },
+	["diag"] = { function() vim.diagnostics.open_float() end, desc = "Diagnostics" },
+	["diag_next"] = { function() vim.diagnostics.goto_next() end, desc = "Next diagnostics" },
+	["diag_prev"] = { function() vim.diagnostics.goto_prev() end, desc = "Prev diagnostics" },
 	["code_action"] = { function() vim.lsp.buf.code_action() end, desc = "Code action" },
 	["references"] = { function() vim.lsp.buf.references() end, desc = "References" },
 	["rename"] = { function() vim.lsp.buf.rename() end, desc = "Rename" },
@@ -170,15 +177,15 @@ end)
 lsp_zero.setup()
 
 -- cmp commands
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
-local cmp_mappings = lsp_zero.defaults.cmp_mappings({
-	["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
-	["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
-	["<C-y>"] = cmp.mapping.confirm({ select = true }),
-	["<C-Space>"] = cmp.mapping.complete(),
-    ['<C-f>'] = cmp_action.luasnip_jump_forward(),
-    ['<C-b>'] = cmp_action.luasnip_jump_backward(),
-})
+-- local cmp_select = {behavior = cmp.SelectBehavior.Select}
+-- local cmp_mappings = lsp_zero.defaults.cmp_mappings({
+-- 	["<C-p>"] = cmp.mapping.select_prev_item(cmp_select),
+-- 	["<C-n>"] = cmp.mapping.select_next_item(cmp_select),
+-- 	["<C-y>"] = cmp.mapping.confirm({ select = true }),
+-- 	["<C-Space>"] = cmp.mapping.complete(),
+--   ['<C-f>'] = cmp_action.luasnip_jump_forward(),
+--   ['<C-b>'] = cmp_action.luasnip_jump_backward(),
+-- })
 
 cmp.setup({
   mapping = {
