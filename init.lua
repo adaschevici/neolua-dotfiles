@@ -73,4 +73,24 @@ vim.api.nvim_create_autocmd("FileType", {
 
 require("lazy_setup")
 
+-- local function is_large_file(bufnr)
+-- 	local file_size_mb = vim.fn.getfsize(vim.api.nvim_buf_get_name(bufnr)) / 1024 / 1024
+-- 	return file_size_mb > 0.5
+-- end
+--
+-- vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+-- 	pattern = "*",
+-- 	callback = function(args)
+-- 		if is_large_file(args.buf) then
+-- 			vim.cmd([[
+--         syntax off
+--         setlocal foldmethod=manual
+--         TSDisable highlight
+--         LSPDisable  -- Disable Language Server Protocol features
+--         setlocal nocursorline nocursorcolumn -- Disable extras that might cause slowdowns
+--         setlocal spell spelllang=en_us -- Keep spellcheck but simplify
+--       ]])
+-- 		end
+-- 	end,
+-- })
 -- vim.api.nvim_set_keymap("n", "<leader>fw", "<cmd>Telescope grep_string<cr>", { noremap = true, silent = true })
