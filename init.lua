@@ -2,10 +2,10 @@
 -- This file doesn't necessarily need to be touched, BE CAUTIOUS editing this file and proceed at your own risk.
 
 -- Enable line numbers
-vim.opt.number = true
+-- vim.opt.number = true
 
 -- Enable relative line numbers
-vim.opt.relativenumber = true
+-- vim.opt.relativenumber = true
 
 vim.api.nvim_command("cnoreabbrev W w")
 vim.api.nvim_command("cnoreabbrev Q q")
@@ -71,7 +71,7 @@ vim.api.nvim_create_autocmd("FileType", {
 	group = spellcheck_group,
 })
 
-require("lazy_setup")
+require("init")
 
 -- local function is_large_file(bufnr)
 -- 	local file_size_mb = vim.fn.getfsize(vim.api.nvim_buf_get_name(bufnr)) / 1024 / 1024
