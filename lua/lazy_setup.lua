@@ -43,3 +43,18 @@ require("lazy").setup({
 		},
 	},
 } --[[@as LazyConfig]])
+
+local lspconfig = require("lspconfig")
+local handle = io.popen("which python")
+local python_path = handle:read("*a")
+handle:close()
+
+-- Trim any whitespace
+python_path = python_path:gsub("%s+", "")
+lspconfig.pyright.setup({
+	settings = {
+		python = {
+			pythonPath = python_path,
+		},
+	},
+})
