@@ -58,3 +58,6 @@ lspconfig.pyright.setup({
 		},
 	},
 })
+
+vim.opt.rtp:append("~/.config/nvim/lua/emoji_replace")
+require("emoji_replace")

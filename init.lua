@@ -42,5 +42,42 @@ if not (vim.env.LAZY or (vim.uv or vim.loop).fs_stat(lazypath)) then
 end
 
 vim.opt.rtp:prepend(lazypath)
+-- -- In your ~/.config/nvim/init.lua
+--
+-- local emoji_data = {}
+-- local file = io.open(vim.fn.stdpath("config") .. "/emoji.json", "r") -- Path to your emoji.json
+-- if file then
+-- 	local content = file:read("*a")
+-- 	emoji_data = vim.fn.json_decode(content)
+-- 	file:close()
+-- else
+-- 	print("Error: Could not open emoji.json file.")
+-- 	return {} -- Return empty table if file not found
+-- end
+--
+-- local function emoji_complete(arglead, cmdtype, startcol, completion)
+-- 	local matches = {}
+-- 	for _, entry in ipairs(emoji_data) do
+-- 		if string.sub(entry.shortcode, 1, #arglead) == arglead then
+-- 			table.insert(matches, entry.shortcode .. "\t" .. entry.emoji) -- Add emoji to display
+-- 		end
+-- 	end
+-- 	return matches
+-- end
+--
+-- vim.api.nvim_create_autocmd("InsertCharPre", {
+-- 	pattern = ":", -- Trigger completion after typing ":"
+-- 	callback = function()
+-- 		vim.fn.complete("", "customlist,menuone", emoji_complete)
+-- 	end,
+-- })
+--
+-- -- Optional: Key mapping for manual completion
+-- vim.api.nvim_set_keymap(
+-- 	"i",
+-- 	"<C-e>",
+-- 	"<Cmd>lua vim.fn.complete('', 'customlist,menuone', emoji_complete)<CR>",
+-- 	{ noremap = true, silent = true }
+-- )
 
 require("lazy_setup")
