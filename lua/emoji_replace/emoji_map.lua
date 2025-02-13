@@ -156,4 +156,5 @@ return {
 	[":raised_hands:"] = "🙌",
 	[":pray:"] = "🙏",
 	[":writing_hand:"] = "✍️",
+	[":facepalm:"] = "🤦",
 }
